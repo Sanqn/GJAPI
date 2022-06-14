@@ -74,7 +74,10 @@ WSGI_APPLICATION = 'DRF.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': {
+
+    'CONN_MAX_AGE': 500}
+    # 'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
@@ -133,11 +136,11 @@ STATIC_URL = 'static/'
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # django_heroku.settings(locals())
-import os
-import psycopg2
-
-DATABASE_URL = os.environ['DATABASE_URL']
-
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# import os
+# import psycopg2
+#
+# DATABASE_URL = os.environ['DATABASE_URL']
+#
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
