@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from rest_framework import viewsets
-from .serializers import NewPersonHeroSerializer
+from .serializers import NewPersonSerializer
 from .models import NewPerson
 
 def main(request):
@@ -8,4 +8,4 @@ def main(request):
 
 class NewPersonViewsets(viewsets.ModelViewSet):
     queryset = NewPerson.objects.all().order_by('first_name')
-    serializer_class = NewPersonHeroSerializer
+    serializer_class = NewPersonSerializer
