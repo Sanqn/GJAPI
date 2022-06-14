@@ -73,27 +73,24 @@ WSGI_APPLICATION = 'DRF.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': BASE_DIR / 'postgresql_psycopg2',
-#         'CONN_MAX_AGE': 500}
-    # 'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+#         'NAME': 'test_crm',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#         'CONN_MAX_AGE': 500
+#     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '5432',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -143,4 +140,5 @@ django_heroku.settings(locals())
 #
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 #
+
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
