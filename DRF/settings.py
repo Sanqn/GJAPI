@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'DRF.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': str(BASE_DIR / 'postgresql_psycopg2'),
+    'NAME': BASE_DIR / 'postgresql_psycopg2',
     'CONN_MAX_AGE': 500}
     # 'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
     # 'default': {
