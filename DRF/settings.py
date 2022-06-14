@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-import django_heroku
+# import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'DRF.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR) / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 # DATABASES = {
@@ -132,7 +132,7 @@ STATIC_URL = 'static/'
 
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 # import os
 # import psycopg2
 #
@@ -140,5 +140,5 @@ django_heroku.settings(locals())
 #
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 #
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
