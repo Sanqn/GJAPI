@@ -9,3 +9,4 @@ def main(request):
 class NewPersonViewsets(viewsets.ModelViewSet):
     queryset = NewPerson.objects.all().order_by('first_name')
     serializer_class = NewPersonSerializer
+    lookup_field = 'first_name'
