@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--zo0b5i21586e4lr1h$6dz8yyssuw@6v4$j4a$u&@a4g5w!x0b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -141,5 +141,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 #
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
